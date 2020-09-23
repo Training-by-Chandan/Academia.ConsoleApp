@@ -16,22 +16,46 @@ namespace Academia.ConsoleApp
     {
         private string _name = "";
         private string _class = "";
-        public Student()
-        {
-            _class = "6th Sem";
-        }
+        #region Construtor Overloading
+            public Student()
+            {
+                _class = "6th Sem";
+            }
 
-        public Student(string name, string classname)
-        {
-            _name = name;
-            _class = classname;
-        }
+            public Student(string name, string classname)
+            {
+                _name = name;
+                _class = classname;
+            }
 
-        public void Display()
+            public Student(string name)
+            {
+                _name = name;
+            }
+        #endregion
+
+        #region Function Overloading in Display function 
+            public void Display()
+            {
+                Console.WriteLine("Name = " + _name + "\nClass = " + _class);
+                Console.WriteLine(string.Format("Name = {0}\n Class = {1}", _name, _class));
+                Console.WriteLine($"Name = {_name}\nClass = {_class}");
+            }
+            public void Display(string name)
+            {
+
+            }
+            public void Display(string name, string classname)
+            {
+            
+            }
+        #endregion
+
+        //not oftenly used
+        ~Student()
         {
-            Console.WriteLine("Name = " + _name + "\nClass = " + _class);
-            Console.WriteLine(string.Format("Name = {0}\n Class = {1}", _name, _class));
-            Console.WriteLine($"Name = {_name}\nClass = {_class}");
+            _name = null;
+            _class = null;
         }
 
     }
