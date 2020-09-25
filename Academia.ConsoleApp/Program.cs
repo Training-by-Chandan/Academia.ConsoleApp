@@ -104,4 +104,16 @@ namespace Academia.ConsoleApp
         }
 
     }
+
+    namespace PartialClasses
+    {
+        public partial class Electornics
+        {
+            void test()
+            {
+                this.ItemName = "";
+            }
+        }
+    }
+   
 }

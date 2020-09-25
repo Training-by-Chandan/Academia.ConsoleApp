@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Academia.ConsoleApp.PartialClasses
 {
-    class Electornics
+    public partial class Electornics
     {
+        public string ItemName { get; set; }
     }
 }
