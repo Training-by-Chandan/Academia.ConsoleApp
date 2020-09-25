@@ -22,7 +22,7 @@ namespace Academia.ConsoleApp.Inheritence
             
         }
 
-        public void Display()
+        public override void Display()
         {
             base.Display();
             Console.WriteLine($"Father => {this.FirstName} {this.LastName}");

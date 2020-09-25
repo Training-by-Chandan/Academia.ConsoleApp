@@ -23,7 +23,7 @@ namespace Academia.ConsoleApp.Inheritence
         protected string SomeFamilySecret { get; set; }
         private string SomePersonalSecret { get; set; }
 
-        public void Display()
+        public virtual void Display()
         {
             
             Console.WriteLine($"Grandfather => {this.FirstName} {this.LastName}");

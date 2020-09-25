@@ -1,4 +1,5 @@
 ﻿using Academia.ConsoleApp.Inheritence;
+using Academia.ConsoleApp.Interface;
 using System; //using directive
 
 namespace Academia.ConsoleApp
@@ -7,8 +8,12 @@ namespace Academia.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Inherit();
+            //Inherit();
+            //StructVsClass();
 
+            //EnumExample();
+
+            InterfaceExample();
             Console.ReadLine();
         }
         static  void Initial()
@@ -52,5 +57,51 @@ namespace Academia.ConsoleApp
             
             
         }
+
+        static void StructVsClass()
+        {
+            Human h=new Human();
+            HumanStruct hs;
+
+            int i = 0;
+        }
+
+
+        static void EnumExample()
+        {
+            Gender male = Gender.Male;
+            Gender female = Gender.Female;
+
+            Console.WriteLine($"Value of male is {male}");
+            Console.WriteLine($"Value of male in string is {male.ToString()}");
+            Console.WriteLine($"Acctual Value of male in string is {(int)male}");
+        }
+
+
+        static void InterfaceExample()
+        {
+            IShape s1;
+            Rectangle r1 = new Rectangle();
+            r1.Length = 1.2M;
+            r1.Breadth = 2.3M;
+            Rectangle r2 = new Rectangle() { Length=1.5M, Breadth=5.4M };
+            Circle c1 = new Circle() { Radius=2.5M };
+            //r1 = c1; //this cannot be done
+            s1 = r1;
+            //for rectangle r1
+            Console.WriteLine($"Perimeter = {s1.Perimeter()}\nArea = {s1.Area()}");
+
+            //rectangle r2
+            s1 = r2;
+            Console.WriteLine($"Perimeter = {s1.Perimeter()}\nArea = {s1.Area()}");
+
+
+            //Circle c1
+            s1 = c1;
+            Console.WriteLine($"Perimeter = {s1.Perimeter()}\nArea = {s1.Area()}");
+
+
+        }
+
     }
 }
