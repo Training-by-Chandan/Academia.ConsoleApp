@@ -13,7 +13,11 @@ namespace Academia.ConsoleApp
 
             //EnumExample();
 
-            InterfaceExample();
+            //InterfaceExample();
+
+            //PointersExample();
+
+            Delegates();
             Console.ReadLine();
         }
         static  void Initial()
@@ -103,6 +107,46 @@ namespace Academia.ConsoleApp
 
         }
 
+        static void PointersExample()
+        {
+            int i = 0;
+
+            Pointers.Math math = new Pointers.Math();
+
+            math.Add1byVal(i);
+
+            Console.WriteLine($"After using Pass by Val Method value of I is {i}");
+
+            math.Add1byRef(ref i);
+
+            Console.WriteLine($"After using Pass by Ref Method value of I is {i}");
+
+        }
+
+
+        static void Delegates()
+        {
+            DelegatesAndEvent.DelegateImpl d1 = new DelegatesAndEvent.DelegateImpl();
+            Console.WriteLine("Without Adding");
+
+            d1.Initiate();
+            // d1.Initiate2();
+
+            //after adding next event
+            Console.WriteLine("try adding 1");
+
+            d1.AddNextEvent();
+            d1.Initiate();
+            Console.WriteLine("try adding 2");
+            d1.AddNextEvent();
+            d1.Initiate();
+            Console.WriteLine("try adding 3");
+
+            d1.AddNextEvent();
+            d1.Initiate();
+
+
+        }
     }
 
     namespace PartialClasses

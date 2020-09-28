@@ -4,10 +4,19 @@ using System.Text;
 
 namespace Academia.ConsoleApp.Interface
 {
-    public interface IShape
+    public interface IShape : IArea, IPerimeter
+    {
+        
+    }
+
+    public interface IArea
+    {
+        decimal Area();
+    }
+
+    public interface IPerimeter
     {
         decimal Perimeter();
-        decimal Area();
     }
 
     public class Rectangle : IShape
