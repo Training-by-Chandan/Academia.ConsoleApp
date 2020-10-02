@@ -1,4 +1,5 @@
-﻿using Academia.ConsoleApp.Inheritence;
+﻿using Academia.ConsoleApp.Collections;
+using Academia.ConsoleApp.Inheritence;
 using Academia.ConsoleApp.Interface;
 using System; //using directive
 
@@ -17,7 +18,11 @@ namespace Academia.ConsoleApp
 
             //PointersExample();
 
-            Delegates();
+            //Delegates();
+
+            //CollectionsExample();
+
+            GenericTest();
             Console.ReadLine();
         }
         static  void Initial()
@@ -147,6 +152,34 @@ namespace Academia.ConsoleApp
 
 
         }
+
+        static void CollectionsExample()
+        {
+            ListStudents ls = new ListStudents();
+            ls.AddStudent("pratik", "dahal", 0);
+            ls.AddStudent("Manish", "Dhakal", 101);
+            ls.AddStudent("pranish", "maharjan", 50);
+            ls.AddStudent("Rohit", "maharjan", 50);
+            ls.AddStudent("Rajat", "maharjan", 50);
+
+            ls.DisplayAll();
+
+            ls.DisplaybyFName("R");
+            ls.DisplaybyFName("pra");
+
+
+        }
+
+        static void GenericTest()
+        {
+            GenericStack<string, int> gs = new GenericStack<string, int>();
+            gs.DisplayTypesofTemplates();
+
+            GenericStack<Students, ListStudents> gs2 = new GenericStack<Students, ListStudents>();
+            gs2.DisplayTypesofTemplates();
+
+        }
+
     }
 
     namespace PartialClasses
