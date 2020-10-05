@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Academia.ConsoleApp.Collections
 {
-    public class GenericStack<T1, T2> where T1 : class
+    public class GenericStack<T1, T2> 
     {
         public T1 Template1;
         public T2 Template2;
