@@ -26,7 +26,7 @@ namespace Academia.ConsoleApp.Collections
         public void DisplaybyFName(string name)
         {
             var listlinq = (from s in St where s.FName.StartsWith(name) select s);
-            var list = St.Where(p => p.FName.StartsWith(name)); // lambda expression
+            var list = St.Where(p => p.FName.StartsWith(name)).Select(p=>p); // lambda expression
 
             foreach (var item in list)
             {

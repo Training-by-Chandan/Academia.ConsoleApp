@@ -22,8 +22,119 @@ namespace Academia.ConsoleApp
 
             //CollectionsExample();
 
-            GenericTest();
+            //GenericTest();
+
+            //DynamicCustomQueueImplementation();
+            StringGenericDynamicCustomQueueImplementation();
             Console.ReadLine();
+        }
+
+        static void CustomQueueImplementation()
+        {
+            CustomQueue queue = new CustomQueue();
+            queue.Enqueue(1);
+            queue.Enqueue(3);
+            queue.Enqueue(6);
+            queue.Enqueue(2);
+            queue.Enqueue(7);
+            queue.Enqueue(8);
+            queue.Enqueue(3);
+            queue.Enqueue(10);
+            queue.Enqueue(12);
+            queue.Enqueue(21);
+
+            queue.DisplayAll();
+            int a = queue.Dequeue();
+            queue.DisplayAll();
+
+            queue.Enqueue(1);
+            queue.DisplayAll();
+
+            queue.Enqueue(13);
+            queue.Enqueue(109);
+        }
+
+        static void DynamicCustomQueueImplementation()
+        {
+            DynamicCustomQueue queue = new DynamicCustomQueue();
+            queue.Enqueue(1);
+            queue.DisplayAll();
+            queue.Enqueue(3);
+            queue.DisplayAll();
+            queue.Enqueue(6);
+            queue.DisplayAll();
+            queue.Enqueue(2);
+            queue.DisplayAll();
+            queue.Enqueue(7);
+            queue.DisplayAll();
+            queue.Enqueue(8);
+            queue.DisplayAll();
+            queue.Enqueue(3);
+            queue.DisplayAll();
+            queue.Enqueue(10);
+            queue.DisplayAll();
+            queue.Enqueue(12);
+            queue.DisplayAll();
+            queue.Enqueue(21);
+
+            queue.DisplayAll();
+            int a = queue.Dequeue();
+            queue.DisplayAll();
+
+            queue.Enqueue(1);
+            queue.DisplayAll();
+
+            queue.Enqueue(13);
+            queue.DisplayAll();
+            queue.Enqueue(109);
+            queue.DisplayAll();
+
+        }
+
+        static void IntGenericDynamicCustomQueueImplementation()
+        {
+            GenericDynamicCustomQueue<int> queue = new GenericDynamicCustomQueue<int>();
+            queue.Enqueue(1);
+            queue.DisplayAll();
+            queue.Enqueue(3);
+            queue.DisplayAll();
+            queue.Enqueue(21);
+
+            queue.DisplayAll();
+            int a = queue.Dequeue();
+            queue.DisplayAll();
+
+            queue.Enqueue(1);
+            queue.DisplayAll();
+
+            queue.Enqueue(13);
+            queue.DisplayAll();
+            queue.Enqueue(109);
+            queue.DisplayAll();
+
+        }
+
+        static void StringGenericDynamicCustomQueueImplementation()
+        {
+            GenericDynamicCustomQueue<string> queue = new GenericDynamicCustomQueue<string>();
+            queue.Enqueue("a");
+            queue.DisplayAll();
+            queue.Enqueue("b");
+            queue.DisplayAll();
+            queue.Enqueue("c");
+
+            queue.DisplayAll();
+            string a = queue.Dequeue();
+            queue.DisplayAll();
+
+            queue.Enqueue("d");
+            queue.DisplayAll();
+
+            queue.Enqueue("e");
+            queue.DisplayAll();
+            queue.Enqueue("f");
+            queue.DisplayAll();
+
         }
         static  void Initial()
         {
