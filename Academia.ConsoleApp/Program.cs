@@ -114,6 +114,15 @@ namespace Academia.ConsoleApp
 
         }
 
+        static void Templating()
+        {
+            TemplatingExample<int, string> example = new TemplatingExample<int, string>();
+            var a = example.Func1(1);
+            TemplatingExample<string, int> example2 = new TemplatingExample<string, int>();
+            var b = example2.Func1("1");
+
+        }
+
         static void StringGenericDynamicCustomQueueImplementation()
         {
             GenericDynamicCustomQueue<string> queue = new GenericDynamicCustomQueue<string>();
