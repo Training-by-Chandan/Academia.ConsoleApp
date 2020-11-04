@@ -2,6 +2,7 @@
 using Academia.ConsoleApp.Inheritence;
 using Academia.ConsoleApp.Interface;
 using System; //using directive
+using System.Threading.Tasks;
 
 namespace Academia.ConsoleApp
 {
@@ -25,9 +26,87 @@ namespace Academia.ConsoleApp
             //GenericTest();
 
             //DynamicCustomQueueImplementation();
-            StringGenericDynamicCustomQueueImplementation();
+            //StringGenericDynamicCustomQueueImplementation();
+
+            //Async1();
+            //Async2();
+
+            //AttributeExample();
+
+            try
+            {
+                ExceptionExample();
+            }
+            catch(AcademiaException ex)
+            {
+                Console.WriteLine("Custom exception Academia Exception =>{0}", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             Console.ReadLine();
         }
+
+        static void ExceptionExample()
+        {
+            var a = Console.ReadLine();
+            if (a.Contains("abc"))
+            {
+                throw new AcademiaException("abc is not valid");
+            }
+            if (a.Contains("xyz"))
+            {
+                throw new NewException("xyz is not valid");
+            }
+        }
+
+
+        static void AttributeExample()
+        {
+            LoginModel login = new LoginModel();
+
+            login.Username = "abc";
+            login.Password = "test123";
+
+            var properties = login.GetType().GetProperties();
+
+            foreach (var item in properties)
+            {
+                Console.WriteLine(item.Name);
+                var propertyAttrib = item.CustomAttributes;
+                foreach (var items in propertyAttrib)
+                {
+                    Console.WriteLine(items.AttributeType.Name);
+                    //if email address then validate and verify if the value in property is email or not
+
+                    //if password validate and verify and print ********
+                }
+            }
+            var classProperties = login.GetType().CustomAttributes;
+
+            Console.WriteLine(login.Username);
+        }
+
+        static async Task Async1()
+        {
+            for (int i = 0; i < 5000; i++)
+            {
+                await Task.Delay(1000);
+                Console.WriteLine("Async 1==>{0} ", i);
+            }
+        }
+
+        static async Task Async2()
+        {
+            for (int i = 0; i < 2500; i++)
+            {
+                await Task.Delay(1000);
+                Console.WriteLine($"Async 2 ============> {i}");
+            }
+        }
+
 
         static void CustomQueueImplementation()
         {
