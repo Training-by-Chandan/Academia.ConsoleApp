@@ -1,8 +1,10 @@
 ﻿using Academia.ConsoleApp.Collections;
 using Academia.ConsoleApp.Inheritence;
 using Academia.ConsoleApp.Interface;
-using System; //using directive
+using System;
+using System.Data; //using directive
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace Academia.ConsoleApp
 {
@@ -33,20 +35,65 @@ namespace Academia.ConsoleApp
 
             //AttributeExample();
 
+            //Exceptions();
+
+            Database();
+
+            Console.ReadLine();
+        }
+            static Human h;
+
+        static void Database()
+        {
+            // We have a People table
+            // with an Id and a Name
+            using var connection =
+              new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AcademiaDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+
+             connection.Open();
+
+            // insert into database
+            var insert = connection.CreateCommand();
+            insert.CommandType = CommandType.Text;
+            insert.CommandText = "insert into People (Name) values (@Name)";
+            insert.Parameters.AddWithValue("@Name", "Khalid");
+            var result = insert.ExecuteNonQuery();
+            Console.WriteLine($"We executed an insert with a result of {result}");
+
+            // read from the database
+            var query = connection.CreateCommand();
+            query.CommandText = "select Id, Name from People";
+            query.CommandType = CommandType.Text;
+            using (var reader = query.ExecuteReader())
+            {
+                while (reader.Read()) 
+                {
+                    Console.WriteLine($"My name is {reader["Name"]}");
+                }
+            }
+
+            // clean up
+            var truncate = connection.CreateCommand();
+            truncate.CommandType = CommandType.Text;
+            truncate.CommandText = "Truncate Table People";
+            result = truncate.ExecuteNonQuery();
+            Console.WriteLine($"We executed an insert with a result of {result}");
+
+            // shut it down, shut it all down            
+            connection.Close();
+            Console.WriteLine("Connection terminated 🤖");
+        }
+        static void Exceptions ()
+        {
             try
             {
-                ExceptionExample();
-            }
-            catch(AcademiaException ex)
-            {
-                Console.WriteLine("Custom exception Academia Exception =>{0}", ex.Message);
+                Console.WriteLine(h.Name);
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.ToString());
             }
-
-            Console.ReadLine();
         }
 
         static void ExceptionExample()
@@ -380,6 +427,8 @@ namespace Academia.ConsoleApp
         }
 
     }
+
+   
 
     namespace PartialClasses
     {
